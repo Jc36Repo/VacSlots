@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: myheader">
+	
+</head>
+
+<body>
+<nav th:replace="layouts :: mynavbar"></nav>
+<div class="container">
+
+<h3>Main Dashboard</h3>
+<hr>
+	<h4>Current Slots For Age: 18+</h4>
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th> Name </th>
+							<th> Pincode </th>
+							<th> Available Capacity </th>
+							<th> Date </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="aslot : ${slotList}">
+							<td th:text="${aslot.name}"/>
+							<td th:text="${aslot.pincode}"/>
+							<td th:text="${aslot.slots}" th:style="${aslot.slots}>0?'background: darkseagreen' : 'background: lightcoral'"/>
+							<td th:text="${aslot.date}"/>
+						</tr>
+					</tbody>
+				
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h4>Last Refreshed At: <span id="time"></span></h4>
+	</div>
+</div>
+<script>
+var today = new Date();
+document.getElementById('time').innerHTML=today;
+</script>
+
+</body>
+</html>
