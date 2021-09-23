@@ -6,4 +6,4 @@ WORKDIR /usr/local/bin/
 
 ADD target/vacslots-app.jar .
 
-ENTRYPOINT ["java", "-jar", "simple-service.jar"]
+ENTRYPOINT ["java", "-jar", "vacslots-app.jar"]
